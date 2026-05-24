@@ -1,4 +1,4 @@
-package com.example.foodapp.Activity.Dashboard
+package com.example.foodapp.activity.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -26,10 +26,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.foodapp.R
+
 @Preview(showBackground = true)
 @Composable
 fun TopBar() {
-
     var text by rememberSaveable { mutableStateOf("") }
 
     Row(
@@ -38,7 +38,6 @@ fun TopBar() {
             .padding(horizontal = 16.dp)
             .fillMaxWidth()
     ) {
-
         Image(
             painter = painterResource(R.drawable.profile),
             contentDescription = null,
@@ -50,12 +49,10 @@ fun TopBar() {
         TextField(
             value = text,
             onValueChange = { text = it },
-
             modifier = Modifier
                 .weight(1f)
                 .padding(horizontal = 12.dp)
                 .height(45.dp),
-
             label = {
                 Text(
                     text = "What would you like to eat?",
@@ -65,7 +62,6 @@ fun TopBar() {
                     color = Color.DarkGray
                 )
             },
-
             trailingIcon = {
                 Image(
                     painter = painterResource(R.drawable.search),
@@ -73,9 +69,7 @@ fun TopBar() {
                     modifier = Modifier.size(20.dp)
                 )
             },
-
             shape = RoundedCornerShape(25.dp),
-
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = colorResource(R.color.white),
                 unfocusedContainerColor = colorResource(R.color.white),
@@ -85,11 +79,13 @@ fun TopBar() {
                 unfocusedTextColor = Color.DarkGray
             )
         )
-        Image(painter = painterResource(R.drawable.bell_icon),
+
+        Image(
+            painter = painterResource(R.drawable.bell_icon),
             contentDescription = null,
             modifier = Modifier
                 .size(38.dp)
-                .clickable{}
-            )
+                .clickable {}
+        )
     }
 }

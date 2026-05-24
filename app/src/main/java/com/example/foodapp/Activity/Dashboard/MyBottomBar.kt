@@ -2,8 +2,8 @@ package com.example.foodapp.activity.dashboard
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,23 +21,16 @@ import com.example.foodapp.R
 @Preview(showBackground = true)
 @Composable
 fun MyBottomBar() {
-
     val bottomMenuItemList = prepareBottomMenu()
     var selectedItem by remember { mutableStateOf("Home") }
 
-    BottomAppBar(
+    NavigationBar(
         containerColor = colorResource(id = R.color.white)
     ) {
-
         bottomMenuItemList.forEach { bottomMenuItem ->
-
             NavigationBarItem(
                 selected = selectedItem == bottomMenuItem.label,
-
-                onClick = {
-                    selectedItem = bottomMenuItem.label
-                },
-
+                onClick = { selectedItem = bottomMenuItem.label },
                 icon = {
                     Icon(
                         painter = bottomMenuItem.icon,
@@ -59,32 +52,11 @@ data class BottomMenuItem(
 
 @Composable
 fun prepareBottomMenu(): List<BottomMenuItem> {
-
     return listOf(
-
-        BottomMenuItem(
-            label = "Home",
-            icon = painterResource(id = R.drawable.btn_1)
-        ),
-
-        BottomMenuItem(
-            label = "Cart",
-            icon = painterResource(id = R.drawable.btn_2)
-        ),
-
-        BottomMenuItem(
-            label = "Favorite",
-            icon = painterResource(id = R.drawable.btn_3)
-        ),
-
-        BottomMenuItem(
-            label = "Order",
-            icon = painterResource(id = R.drawable.btn_4)
-        ),
-
-        BottomMenuItem(
-            label = "Profile",
-            icon = painterResource(id = R.drawable.btn_5)
-        )
+        BottomMenuItem(label = "Home", icon = painterResource(id = R.drawable.btn_1)),
+        BottomMenuItem(label = "Cart", icon = painterResource(id = R.drawable.btn_2)),
+        BottomMenuItem(label = "Favorite", icon = painterResource(id = R.drawable.btn_3)),
+        BottomMenuItem(label = "Order", icon = painterResource(id = R.drawable.btn_4)),
+        BottomMenuItem(label = "Profile", icon = painterResource(id = R.drawable.btn_5))
     )
 }
