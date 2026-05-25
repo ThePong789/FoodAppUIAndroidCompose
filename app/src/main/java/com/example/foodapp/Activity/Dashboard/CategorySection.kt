@@ -18,11 +18,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.example.foodapp.Domain.CategoryModel
 import com.example.foodapp.R
 
@@ -92,6 +95,7 @@ fun CategoryItem(
             contentDescription = null,
             modifier = Modifier.size(80.dp)
         )
+
         Text(
             text = category.Name,
             color = colorResource(R.color.darkPurple),
