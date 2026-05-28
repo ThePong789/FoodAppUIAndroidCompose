@@ -28,8 +28,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foodapp.Domain.CategoryModel
 import com.example.foodapp.R
 import com.example.foodapp.ViewModel.MainViewModel
-import com.example.foodapp.activity.dashboard.CategorySection
-import com.example.foodapp.activity.dashboard.TopBar
 import com.example.foodapp.ui.theme.FoodAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -78,6 +76,7 @@ fun MainScreen() {
             item(span = { GridItemSpan(2) }) {
                 CategorySection(categories, showCategoryLoading)
             }
+
         }
     }
 }
