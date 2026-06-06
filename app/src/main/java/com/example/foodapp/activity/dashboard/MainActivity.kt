@@ -74,7 +74,7 @@ fun MainScreen() {
         viewModel.loadBestFood().observeForever {
             bestFood.clear()
             bestFood.addAll(it)
-            showCategoryLoading = false
+            showBestFoodLoading = false
         }
     }
 
@@ -87,7 +87,12 @@ fun MainScreen() {
                 .fillMaxSize()
                 .background(colorResource(R.color.lightGrey))
                 .padding(paddingValues),
-            contentPadding = PaddingValues(8.dp),
+            contentPadding = PaddingValues(
+                start = 8.dp,
+                end = 8.dp,
+                top = 8.dp,
+                bottom = 80.dp  // ✅ បន្ថែម bottom padding ដើម្បីកុំអោយ BottomBar បិទ
+            ),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {

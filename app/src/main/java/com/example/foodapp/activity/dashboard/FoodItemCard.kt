@@ -50,6 +50,7 @@ fun FoodItemCardGrid(item: FoodModel){
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth()
+            .wrapContentHeight()
             .background(colorResource(R.color.white), shape = RoundedCornerShape(14.dp))
             .clip(RoundedCornerShape(14.dp))
             .clickable{},
@@ -61,6 +62,7 @@ fun FoodItemCardGrid(item: FoodModel){
             modifier = Modifier
                 .fillMaxWidth()
                 .height(110.dp)
+
                 .clip(RoundedCornerShape(10.dp)),
             contentScale = ContentScale.Crop
         )

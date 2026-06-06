@@ -1,5 +1,6 @@
 package com.example.foodapp.activity.dashboard
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -18,12 +19,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.AsyncImage
 import com.example.foodapp.Domain.CategoryModel
+import com.example.foodapp.ItemsList.ItemsList
+import com.example.foodapp.ItemsList.ItemsListActivity
 import com.example.foodapp.R
 
 @Composable
@@ -42,6 +47,7 @@ fun CategorySection(
         }
     } else {
         val rows = categories.chunked(3)
+        val context = LocalContext.current
         Column(modifier = Modifier.fillMaxWidth()) {
             rows.forEach { row ->
                 Row(
@@ -56,7 +62,13 @@ fun CategorySection(
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(horizontal = 12.dp),
-                            onItemClick = {}
+                            onItemClick = {
+                                val intent = Intent(context, ItemsListActivity::class.java).apply{
+                                    putExtra("id",categoryModel.ID.toString())
+                                    putExtra("title",categoryModel.Name)
+                                }
+                                startActivity(context,intent,null)
+                            }
                         )
                     }
                     if (row.size < 3) {
