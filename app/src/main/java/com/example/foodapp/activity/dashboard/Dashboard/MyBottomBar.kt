@@ -1,4 +1,4 @@
-package com.example.foodapp.activity.dashboard
+package com.example.foodapp.activity.dashboard.Dashboard
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size

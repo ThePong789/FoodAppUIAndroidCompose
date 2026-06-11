@@ -14,10 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodApp">
         <activity
-            android:name=".ItemsList.ItemsListActivity"
+            android:name=".activity.dashboard.DetailFood.DetailFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.dashboard.MainActivity"
+            android:name=".activity.dashboard.ItemsList.ItemsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.dashboard.Dashboard.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.FoodApp">

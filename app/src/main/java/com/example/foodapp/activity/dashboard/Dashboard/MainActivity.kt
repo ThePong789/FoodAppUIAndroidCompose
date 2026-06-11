@@ -1,4 +1,4 @@
-package com.example.foodapp.activity.dashboard
+package com.example.foodapp.activity.dashboard.Dashboard
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -33,7 +33,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material.Scaffold
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.focus.focusModifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.foodapp.Domain.CategoryModel
 import com.example.foodapp.Domain.FoodModel
@@ -124,7 +123,7 @@ fun MainScreen() {
                 }
             }else{
                 items(bestFood.size) {index->
-                    FoodItemCardGrid(item=bestFood[index])
+                    FoodItemCardGrid(item = bestFood[index])
 
                 }
             }

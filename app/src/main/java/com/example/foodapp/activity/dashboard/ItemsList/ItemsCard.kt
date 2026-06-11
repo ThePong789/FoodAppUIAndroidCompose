@@ -1,5 +1,6 @@
-package com.example.foodapp.ItemsList
+package com.example.foodapp.activity.dashboard.ItemsList
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import com.example.foodapp.R
 import androidx.compose.foundation.background
@@ -17,6 +18,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.traceEventStart
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,11 +31,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.AsyncImage
 import com.example.foodapp.Domain.FoodModel
 import com.example.foodapp.Helper.previewFood
-import java.nio.file.WatchEvent
-
+import com.example.foodapp.activity.dashboard.DetailFood.DetailFoodActivity
+import androidx.compose.ui.platform.LocalContext
 @Composable
 fun ItemsList(items: List<FoodModel>) {
     LazyColumn(
@@ -56,6 +59,7 @@ fun ItemsListPreview() {
 @Composable
 fun Items(item: FoodModel) {
 
+    val context = LocalContext.current
     Row(
         modifier = Modifier
             .padding(vertical = 8.dp)
@@ -65,7 +69,12 @@ fun Items(item: FoodModel) {
                 shape = RoundedCornerShape(10.dp)
             )
             .wrapContentHeight()
-            .clickable { }
+            .clickable {
+                val intent= Intent(context, DetailFoodActivity::class.java).apply{
+                    putExtra("object",item)
+                }
+                startActivity(context,intent,null)
+            }
     ) {
 
         FoodImage(item = item)

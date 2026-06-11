@@ -1,4 +1,4 @@
-package com.example.foodapp.ItemsList
+package com.example.foodapp.activity.dashboard.ItemsList
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -27,13 +27,11 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.foodapp.R
 import com.example.foodapp.ViewModel.MainViewModel
-import okhttp3.internal.ignoreIoExceptions
 
 class ItemsListActivity : AppCompatActivity() {
     private val viewModel = MainViewModel()
