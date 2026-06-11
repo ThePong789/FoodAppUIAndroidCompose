@@ -120,6 +120,8 @@ fun DetailScreen(
                     .padding(horizontal = 16.dp)
             )
             RowDetail(item)
+            DescriptionSection(item.Description)
+            RecommendedList()
         }
     }
 }
